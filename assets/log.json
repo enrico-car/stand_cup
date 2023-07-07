@@ -1,0 +1,18 @@
+{
+    "0": {
+        "name": "Vazzola",
+        "beers": 14
+    },
+    "1": {
+        "name": "Vazzola1",
+        "beers": 8
+    },
+    "2": {
+        "name": "Vazzola2",
+        "beers": 5
+    },
+    "3": {
+        "name": "Vazzola3",
+        "beers": 1
+    }
+}
