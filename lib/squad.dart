@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Squad extends StatefulWidget {
-  const Squad({super.key,required this.index, required this.name, required this.intBeers, required this.callback});
+  const Squad({super.key, required this.index, required this.name, required this.intBeers, required this.callback});
 
   final String name;
   final int index;
@@ -12,12 +13,20 @@ class Squad extends StatefulWidget {
   State<Squad> createState() => _SquadState();
 }
 
-class _SquadState extends State<Squad> {
+class _SquadState extends State<Squad> with TickerProviderStateMixin {
   int beers = 0;
+  late final AnimationController _controller;
   @override
   void initState() {
     super.initState();
     beers = widget.intBeers;
+    _controller = AnimationController(vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   void _incrementCounter() {
@@ -25,6 +34,9 @@ class _SquadState extends State<Squad> {
       beers++;
     });
     widget.callback(widget.index, beers);
+    // if (beers % 5 == 0) {
+    _controller.forward(from: 0);
+    // }
   }
 
   void _decrementCounter() {
@@ -39,25 +51,49 @@ class _SquadState extends State<Squad> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            widget.name,
+          SizedBox(
+            width: 350,
+            child: Text(
+              style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w800),
+              widget.name,
+            ),
+          ),
+          const SizedBox(
+            width: 20,
           ),
           FloatingActionButton(
             onPressed: _incrementCounter,
             child: const Icon(Icons.add),
           ),
+          const SizedBox(
+            width: 20,
+          ),
           FloatingActionButton(
             onPressed: _decrementCounter,
             child: const Icon(Icons.remove),
           ),
+          const SizedBox(
+            width: 150,
+          ),
+          Lottie.asset(
+            "assets/beer.json",
+            height: 80,
+            controller: _controller,
+            repeat: true,
+            onLoaded: (composition) {
+              _controller
+                ..duration = composition.duration
+                ..forward();
+            },
+          ),
           Text(
             '$beers',
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: const TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
           ),
         ],
       ),

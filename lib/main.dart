@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:stand_cup/squad.dart';
+import 'package:window_manager/window_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           onError: Color.fromARGB(255, 0, 0, 0),
           onPrimary: Color.fromARGB(255, 7, 7, 7),
           onSecondary: Color.fromARGB(255, 5, 5, 5),
-          onSurface: Color.fromARGB(255, 74, 94, 3),
+          onSurface: Color.fromARGB(255, 0, 0, 0),
           primary: Color.fromARGB(255, 59, 145, 2),
           secondary: Color.fromARGB(255, 101, 243, 6),
           surface: Color.fromARGB(255, 174, 223, 141),
@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // WindowManager.instance.setFullScreen(true);
     return Scaffold(
       body: ListView.builder(
         itemCount: squads.length,
@@ -80,7 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
     var spaces = ' ' * 4;
     var encoder = JsonEncoder.withIndent(spaces);
     squads["$index"]["beers"] = beers;
-    log("${squads["$index"]["beers"]}");
     var file = encoder.convert(squads);
     File('assets/log.json').writeAsStringSync(file);
   }

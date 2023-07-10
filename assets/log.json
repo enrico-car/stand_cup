@@ -1,18 +1,38 @@
 {
     "0": {
-        "name": "Vazzola",
-        "beers": 14
-    },
-    "1": {
-        "name": "Vazzola1",
-        "beers": 8
-    },
-    "2": {
-        "name": "Vazzola2",
+        "name": "Team 1",
         "beers": 5
     },
+    "1": {
+        "name": "Team 2",
+        "beers": 0
+    },
+    "2": {
+        "name": "Team 3",
+        "beers": 0
+    },
     "3": {
-        "name": "Vazzola3",
-        "beers": 1
+        "name": "Team 4",
+        "beers": 0
+    },
+    "4": {
+        "name": "Team 5",
+        "beers": 0
+    },
+    "5": {
+        "name": "Team 6",
+        "beers": 0
+    },
+    "6": {
+        "name": "Team 7",
+        "beers": 0
+    },
+    "7": {
+        "name": "Team 8",
+        "beers": 0
+    },
+    "8": {
+        "name": "Team 9",
+        "beers": 0
     }
 }
