@@ -9,7 +9,7 @@
     },
     "2": {
         "name": "Team 3",
-        "beers": 0
+        "beers": 4
     },
     "3": {
         "name": "Team 4",
@@ -21,7 +21,7 @@
     },
     "5": {
         "name": "Team 6",
-        "beers": 0
+        "beers": 6
     },
     "6": {
         "name": "Team 7",
@@ -33,6 +33,22 @@
     },
     "8": {
         "name": "Team 9",
+        "beers": 0
+    },
+    "9": {
+        "name": "Team 10",
+        "beers": 0
+    },
+    "10": {
+        "name": "Team 11",
+        "beers": 0
+    },
+    "11": {
+        "name": "Team 12",
+        "beers": 0
+    },
+    "12": {
+        "name": "Team 13",
         "beers": 0
     }
 }

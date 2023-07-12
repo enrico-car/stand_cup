@@ -60,13 +60,21 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // WindowManager.instance.setFullScreen(true);
     return Scaffold(
-      body: ListView.builder(
-        itemCount: squads.length,
-        itemBuilder: (context, index) {
-          return Squad(index: index, name: squads["$index"]["name"], intBeers: squads["$index"]["beers"], callback: writeJson);
-        },
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: GridView.builder(
+      gridDelegate:
+          const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 1200, childAspectRatio: 7.0, crossAxisSpacing: 5, mainAxisSpacing: 5),
+          itemCount: squads.length,
+      itemBuilder: (BuildContext ctx, index) {
+        return Squad(index: index, name: squads["$index"]["name"], intBeers: squads["$index"]["beers"], callback: writeJson);
+      },
+    )
+        // ListView.builder(
+        //   itemCount: squads.length,
+        //   itemBuilder: (context, index) {
+        //     return Squad(index: index, name: squads["$index"]["name"], intBeers: squads["$index"]["beers"], callback: writeJson);
+        //   },
+        // ),
+        );
   }
 
   void readJson() {
